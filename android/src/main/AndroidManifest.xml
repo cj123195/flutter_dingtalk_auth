@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.cj.dingtalk_auth">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--如果你的App targetSdkVersion>=30，请添加权限声明-->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <application>
+        <activity
+            android:name=".ddauth.DDAuthActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity-alias
+            android:name="${applicationId}.ddauth.DDAuthActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:targetActivity="com.cj.dingtalk_auth.ddauth.DDAuthActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!--                <data android:scheme="sdksample" />-->
+            </intent-filter>
+        </activity-alias>
+    </application>
+</manifest>
