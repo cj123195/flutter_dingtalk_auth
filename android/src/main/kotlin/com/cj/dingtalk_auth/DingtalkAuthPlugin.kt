@@ -41,6 +41,7 @@ class DingtalkAuthPlugin : FlutterPlugin, MethodCallHandler {
             builder.responseType("code")
             builder.nonce(args["nonce"] as String)
             builder.state(args["state"] as String)
+            builder.prompt(args["prompt"] as String)
             val authApi = DDAuthApiFactory.createDDAuthApi(context, builder.build())
             authApi.authLogin()
         } else {

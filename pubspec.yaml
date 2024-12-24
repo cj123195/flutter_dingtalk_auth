@@ -1,9 +1,9 @@
 name: dingtalk_auth
 description: "A plugin that supports DingTalk authentication for your application."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/cj123195/flutter_dingtalk_auth
 repository: https://github.com/cj123195/flutter_dingtalk_auth
-issue_tracker: hhttps://github.com/cj123195/flutter_dingtalk_auth/issues
+issue_tracker: https://github.com/cj123195/flutter_dingtalk_auth/issues
 documentation: https://github.com/cj123195/flutter_dingtalk_auth
 
 environment:
