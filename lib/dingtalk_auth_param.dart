@@ -19,6 +19,7 @@ class DingTalkAuthParam {
     this.state = '',
     this.nonce = '',
     this.scope = DingTalkAuthScope.openidCorpid,
+    this.prompt = 'consent',
   });
 
   /// 钉钉开放平台应用标识。
@@ -47,7 +48,7 @@ class DingTalkAuthParam {
   final String responseType = 'code';
 
   /// 固定值为consent，会进入授权确认页。
-  final String prompt = 'consent';
+  final String prompt;
   final String altSignature = '';
 
   Map<String, String> toJson() {
