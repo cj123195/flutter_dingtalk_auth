@@ -18,7 +18,7 @@ class DingTalkAuthParam {
     required this.redirectUrl,
     this.state = '',
     this.nonce = '',
-    this.scope = DingTalkAuthScope.openidCorpid,
+    this.scope = DingTalkAuthScope.openid,
     this.prompt = 'consent',
   });
 
