@@ -11,10 +11,19 @@ class MethodChannelDingtalkAuth extends DingtalkAuthPlatform {
   final methodChannel = const MethodChannel('dingtalk_auth');
 
   @override
-  Future<String?> authLogin(DingTalkAuthParam param) async {
+  Future<String?> auth(DingTalkAuthParam param) async {
     return await methodChannel.invokeMethod<String>(
-      'authLogin',
+      'auth',
       param.toJson(),
     );
+  }
+
+  @override
+  Future<bool> registerApp(String appId, String bundleId) async {
+    return await methodChannel.invokeMethod<bool>(
+          'registerApp',
+          {'appId': appId, 'bundleId': bundleId},
+        ) ??
+        false;
   }
 }

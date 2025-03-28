@@ -1,0 +1,6 @@
+framework module ADTOpenAuthSDK {
+  umbrella header "ADTOpenAuthSDK.h"
+
+  export *
+  module * { export * }
+}

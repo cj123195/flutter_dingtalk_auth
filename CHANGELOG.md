@@ -1,3 +1,7 @@
+## 0.0.3
+
+* Add iOS platform support.
+
 ## 0.0.2
 
 * Upgrade AGP to 8.5.

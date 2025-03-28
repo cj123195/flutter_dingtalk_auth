@@ -32,7 +32,7 @@ class DingtalkAuthPlugin : FlutterPlugin, MethodCallHandler {
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         AuthResponseHandler.setMethodChannelAndResult(channel, result)
-        if (call.method == "authLogin") {
+        if (call.method == "auth") {
             val args = (call.arguments as HashMap<*, *>)
             val builder = AuthLoginParamBuilder.newBuilder()
             builder.appId(args["appId"] as String)

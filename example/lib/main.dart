@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:dingtalk_auth/dingtalk_auth.dart';
 import 'package:dio/dio.dart';
@@ -17,19 +18,41 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _authCode = 'Tap Auth button to get auth code';
+  String? _authCode;
 
-  static const String _clientId = '';
-  static const String _clientSecret = '';
-  static const String _redirectUrl = '';
+  static const String _bundleId = 'YOUR_BUNDLE_ID';
+  static const String _clientId = 'YOUR_CLIENT_ID';
+  static const String _clientSecret = 'YOUR_CLIENT_SECRET';
+  static const String _redirectUrl = 'YOUR_REDIRECT_URL';
   static const String _grantType = 'authorization_code';
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> _registerApp() async {
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    // We also handle the message potentially returning null.
+    try {
+      final succeed = await DingtalkAuth.registerApp(_clientId, _bundleId);
+
+      _authCode =
+          succeed ? 'Tap Auth button to get auth code' : 'Register failed';
+    } on PlatformException {
+      _authCode = 'Failed to get auth code.';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {});
+  }
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> authLogin() async {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      _authCode = await DingtalkAuth.authLogin(
+      _authCode = await DingtalkAuth.auth(
             const DingTalkAuthParam(
               appId: _clientId,
               redirectUrl: _redirectUrl,
@@ -84,6 +107,16 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
+  void initState() {
+    if (Platform.isAndroid) {
+      _authCode = 'Tap Auth button to get auth code';
+    } else if (Platform.isIOS) {
+      _registerApp();
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -91,7 +124,9 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Auth code: $_authCode\n'),
+          child: _authCode == null
+              ? const CircularProgressIndicator()
+              : Text('Auth code: $_authCode\n'),
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(12.0),

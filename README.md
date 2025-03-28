@@ -19,6 +19,37 @@ Android.
 
 - Set `minSdkVersion` to 21 in `<project root>/android/app/build.gradle`.
 
+### iOS
+
+1. 在 Info.plist 中添加以下配置：
+
+```xml
+<!-- 配置 URL Scheme -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>dingtalk</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>YOUR_APP_ID</string>
+			</array>
+		</dict>
+	</array>
+
+<!-- 配置白名单 -->
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>dingtalk</string>
+    <string>dingtalk-open</string>
+    <string>dingtalk-sso</string>
+</array>
+```
+2. 确保项目的 Bundle ID 与钉钉开放平台配置的一致
+3.  运行 pod install 安装依赖
+
 ## Installing
 
 Add this to your package's pubspec.yaml file:
@@ -35,6 +66,15 @@ import 'package:dingtalk_auth/dingtalk_auth.dart';
 ```
 
 ## Usage
+
+Register your application(iOS Only):
+
+```dart
+await DingtalkAuth.registerApp(
+  appId: 'your app id',
+  bundleId: 'your bundle id', // iOS 平台必填，Android 可传空
+);
+```
 
 Get auth code:
 
@@ -65,6 +105,7 @@ final res = await Http().post(
 ## Related
 
 [Official Android application authorization login access process](https://open.dingtalk.com/document/orgapp/android-platform-application-authorization-login-access)
+[Official iOS application authorization login access process](https://open.dingtalk.com/document/orgapp/mini-app-procedures-for-authorized-logon-to-ios-applications)
 
 ## Contribution
 

@@ -1,6 +1,6 @@
 name: dingtalk_auth
 description: "A plugin that supports DingTalk authentication for your application."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/cj123195/flutter_dingtalk_auth
 repository: https://github.com/cj123195/flutter_dingtalk_auth
 issue_tracker: https://github.com/cj123195/flutter_dingtalk_auth/issues
@@ -40,8 +40,8 @@ flutter:
       android:
         package: com.cj.dingtalk_auth
         pluginClass: DingtalkAuthPlugin
-#      ios:
-#        pluginClass: DingtalkAuthPlugin
+      ios:
+        pluginClass: DingtalkAuthPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

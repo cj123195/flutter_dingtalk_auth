@@ -24,7 +24,12 @@ abstract class DingtalkAuthPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> authLogin(DingTalkAuthParam param) {
+  Future<String?> auth(DingTalkAuthParam param) {
     throw UnimplementedError('auth() has not been implemented.');
+  }
+
+  /// iOS Only
+  Future<bool> registerApp(String appId, String bundleId) {
+    throw UnimplementedError('registerApp() has not been implemented.');
   }
 }

@@ -8,7 +8,12 @@ class MockDingtalkAuthPlatform
     with MockPlatformInterfaceMixin
     implements DingtalkAuthPlatform {
   @override
-  Future<String?> authLogin(DingTalkAuthParam param) => Future.value('123456');
+  Future<String?> auth(DingTalkAuthParam param) => Future.value('123456');
+
+  @override
+  Future<bool> registerApp(String appId, String bundleId) {
+    return Future.value(true);
+  }
 }
 
 void main() {

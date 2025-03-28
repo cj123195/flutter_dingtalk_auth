@@ -1,0 +1,41 @@
+PODS:
+  - dingtalk_auth (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - integration_test (0.0.1):
+    - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - share_plus (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - dingtalk_auth (from `.symlinks/plugins/dingtalk_auth/ios`)
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - share_plus (from `.symlinks/plugins/share_plus/ios`)
+
+EXTERNAL SOURCES:
+  dingtalk_auth:
+    :path: ".symlinks/plugins/dingtalk_auth/ios"
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  share_plus:
+    :path: ".symlinks/plugins/share_plus/ios"
+
+SPEC CHECKSUMS:
+  dingtalk_auth: f79cacfc1d56a31eea829109ca73e934cafd4a5e
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  integration_test: 2d03ab552da9a1f408709a6acf3d7ca4cb3cb307
+  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
+  share_plus: 011d6fb4f9d2576b83179a3a5c5e323202cdabcf
+
+PODFILE CHECKSUM: 6e700dec67e6deac9b1c69bb14c49a2217a12d15
+
+COCOAPODS: 1.16.2
